@@ -15,8 +15,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { RiSendPlaneLine, RiCheckLine, RiErrorWarningLine, RiLoaderLine } from "react-icons/ri";
+import { RiSendPlaneLine, RiCheckLine, RiErrorWarningLine, RiLoaderLine, RiUser3Line, RiMailLine, RiChatSmile3Line } from "react-icons/ri";
 
+// Esquema de validación del formulario
 const contactFormSchema = z.object({
   name: z.string().min(2, {
     message: "El nombre debe tener al menos 2 caracteres.",
@@ -80,12 +81,13 @@ export default function ContactForm() {
 
   return (
     <motion.div
-      className="backdrop-blur-lg bg-primary-dark/70 border border-white/10 p-6 rounded-xl"
+      className="backdrop-blur-lg bg-primary-dark/70 border border-white/10 p-6 rounded-xl shadow-lg h-full"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h3 className="text-xl font-semibold mb-6">Contáctanos</h3>
+      <h3 className="text-xl text-white font-semibold mb-4">Contáctanos</h3>
+      <p className="text-gray-300 text-sm mb-6">Completa el formulario y nos pondremos en contacto contigo lo antes posible</p>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -94,15 +96,20 @@ export default function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nombre</FormLabel>
-                <FormControl>
-                  <Input 
-                    placeholder="Tu nombre" 
-                    {...field}
-                    className="bg-primary-dark/50 border-white/20 focus:border-secondary"
-                  />
-                </FormControl>
-                <FormMessage />
+                <FormLabel className="text-white">Nombre</FormLabel>
+                <div className="relative">
+                  <div className="absolute left-3 top-3 text-gray-400">
+                    <RiUser3Line />
+                  </div>
+                  <FormControl>
+                    <Input 
+                      placeholder="Tu nombre" 
+                      {...field}
+                      className="bg-primary-dark/60 border-white/20 focus-visible:ring-secondary pl-10 text-white placeholder:text-gray-500"
+                    />
+                  </FormControl>
+                </div>
+                <FormMessage className="text-red-400" />
               </FormItem>
             )}
           />
@@ -112,16 +119,21 @@ export default function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input 
-                    type="email" 
-                    placeholder="tu@email.com" 
-                    {...field}
-                    className="bg-primary-dark/50 border-white/20 focus:border-secondary"
-                  />
-                </FormControl>
-                <FormMessage />
+                <FormLabel className="text-white">Email</FormLabel>
+                <div className="relative">
+                  <div className="absolute left-3 top-3 text-gray-400">
+                    <RiMailLine />
+                  </div>
+                  <FormControl>
+                    <Input 
+                      type="email" 
+                      placeholder="tu@email.com" 
+                      {...field}
+                      className="bg-primary-dark/60 border-white/20 focus-visible:ring-secondary pl-10 text-white placeholder:text-gray-500"
+                    />
+                  </FormControl>
+                </div>
+                <FormMessage className="text-red-400" />
               </FormItem>
             )}
           />
@@ -131,15 +143,20 @@ export default function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Mensaje</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    placeholder="¿En qué podemos ayudarte?" 
-                    {...field}
-                    className="bg-primary-dark/50 border-white/20 focus:border-secondary min-h-[120px]"
-                  />
-                </FormControl>
-                <FormMessage />
+                <FormLabel className="text-white">Mensaje</FormLabel>
+                <div className="relative">
+                  <div className="absolute left-3 top-3 text-gray-400">
+                    <RiChatSmile3Line />
+                  </div>
+                  <FormControl>
+                    <Textarea 
+                      placeholder="¿En qué podemos ayudarte?" 
+                      {...field}
+                      className="bg-primary-dark/60 border-white/20 focus-visible:ring-secondary pl-10 min-h-[120px] text-white placeholder:text-gray-500"
+                    />
+                  </FormControl>
+                </div>
+                <FormMessage className="text-red-400" />
               </FormItem>
             )}
           />
@@ -147,7 +164,11 @@ export default function ContactForm() {
           <Button 
             type="submit" 
             disabled={isSubmitting || isSuccess}
-            className={`w-full ${isSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-secondary hover:bg-secondary/90'}`}
+            className={`w-full mt-4 py-6 text-white font-medium ${
+              isSuccess 
+                ? 'bg-green-600 hover:bg-green-700 shadow-md shadow-green-900/20' 
+                : 'bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 shadow-md shadow-accent/20'
+            }`}
           >
             {isSubmitting ? (
               <>
