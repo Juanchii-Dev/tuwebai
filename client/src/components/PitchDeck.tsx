@@ -8,11 +8,13 @@ import Solution from "./slides/Solution";
 import Services from "./slides/Services";
 import Differentials from "./slides/Differentials";
 import Process from "./slides/Process";
+import Timeline from "./slides/Timeline";
 import Projects from "./slides/Projects";
 import Statistics from "./slides/Statistics";
 import Testimonials from "./slides/Testimonials";
 import VideoPresentation from "./slides/VideoPresentation";
 import Team from "./slides/Team";
+import FAQ from "./slides/FAQ";
 import CTA from "./slides/CTA";
 import { useSlideNavigation } from "@/hooks/useSlideNavigation";
 import { slides as slidesData } from "@/lib/slideData";
@@ -25,11 +27,13 @@ const slides = [
   { id: "services", component: Services },
   { id: "differentials", component: Differentials },
   { id: "process", component: Process },
+  { id: "timeline", component: Timeline },
   { id: "projects", component: Projects },
   { id: "statistics", component: Statistics },
   { id: "testimonials", component: Testimonials },
   { id: "video-presentation", component: VideoPresentation },
   { id: "team", component: Team },
+  { id: "faq", component: FAQ },
   { id: "cta", component: CTA },
 ];
 
