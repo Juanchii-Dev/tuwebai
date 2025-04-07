@@ -17,6 +17,7 @@ import CTA from "./slides/CTA";
 import { useSlideNavigation } from "@/hooks/useSlideNavigation";
 import { slides as slidesData } from "@/lib/slideData";
 
+// Ensure this array matches the slides from slideData.ts
 const slides = [
   { id: "cover", component: Cover },
   { id: "problem", component: Problem },
