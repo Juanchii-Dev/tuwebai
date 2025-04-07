@@ -11,6 +11,9 @@ export const slides: SlideData[] = [
   { id: "differentials", title: "Diferenciales" },
   { id: "process", title: "Proceso de trabajo" },
   { id: "projects", title: "Proyectos / Casos de éxito" },
+  { id: "statistics", title: "Estadísticas" },
+  { id: "testimonials", title: "Testimonios" },
+  { id: "video-presentation", title: "Video Presentación" },
   { id: "team", title: "Nuestro equipo" },
-  { id: "cta", title: "Llamado a la acción" },
+  { id: "cta", title: "Contacto" },
 ];
